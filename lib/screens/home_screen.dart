@@ -63,10 +63,10 @@ class HomePage extends StatelessWidget {
                 SizedBox(
                   height: MediaQuery.of(context).size.height,
                   width: MediaQuery.of(context).size.width,
-                  child: const Column(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('📍 Bantwal',style:TextStyle(
+                      const Text('📍 Bantwal',style:TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w300,
                       ),
@@ -80,6 +80,70 @@ class HomePage extends StatelessWidget {
 															fontWeight: FontWeight.bold
 														),
 													),
+                          Image.asset('assets/1.png'),
+                          const Center(
+														child: Text(
+															'21c',
+															style: const TextStyle(
+																color: Colors.white,
+																fontSize: 55,
+																fontWeight: FontWeight.w600
+															),
+														),
+													),
+                          const Center(
+														child: Text(
+															'Weather',
+															style: const TextStyle(
+																color: Colors.white,
+																fontSize: 25,
+																fontWeight: FontWeight.w500
+															),
+														),
+													),
+                          const SizedBox(height: 5),
+													const Center(
+														child: Text(
+															'friday',
+															style: const TextStyle(
+																color: Colors.white,
+																fontSize: 16,
+																fontWeight: FontWeight.w300
+															),
+														),
+													),
+                          const SizedBox(height: 30,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Image.asset('assets/11.png',scale: 8,),
+                                  SizedBox(width: 5,),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+																				'Sunrise',
+																				style: TextStyle(
+																					color: Colors.white,
+																					fontWeight: FontWeight.w300
+																				),
+																			),
+                                      const SizedBox(height: 3),
+																			Text(
+																				'5:30am',
+																				style: const TextStyle(
+																					color: Colors.white,
+																					fontWeight: FontWeight.w700
+																				),
+                                      ),
+                                    ],
+                                  ),
+                                ]
+                              ),
+                            ],
+                          ),
                     ],
                   ),
                 ),
