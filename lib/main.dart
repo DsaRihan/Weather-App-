@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application/bloc/weather_bloc.dart';
 import 'package:flutter_application/screens/home_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:geolocator/geolocator.dart';
-
-void main() {
+import 'package:geolocator/geolocator.dart';void main() {
   runApp(const MainApp());
 }
 
@@ -15,25 +13,53 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
 			debugShowCheckedModeBanner: false,
-      home: FutureBuilder(
-				future: _determinePosition(),
-        builder: (context, snap) {
-					if(snap.hasData) {
-						return BlocProvider<WeatherBloc>(
-							create: (context) => WeatherBloc()..add(
-								Fetchweather(snap.data as Position)
-							),
-							child: const HomePage(),
-						);
-					} else {
-						return const Scaffold(
-							body: Center(
-								child: CircularProgressIndicator(),
-							),
-						);
-					}
+      home: const LocationScreen(),
+    );
+  }
+}
+
+class LocationScreen extends StatefulWidget {
+  const LocationScreen({super.key});
+
+  @override
+  State<LocationScreen> createState() => _LocationScreenState();
+}
+
+class _LocationScreenState extends State<LocationScreen> {
+  late Future<Position> _futurePosition;
+
+  @override
+  void initState() {
+    super.initState();
+    _futurePosition = _determinePosition();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: _futurePosition,
+      builder: (context, snap) {
+        if (snap.hasData) {
+          return BlocProvider<WeatherBloc>(
+            create: (context) => WeatherBloc()..add(
+              Fetchweather(snap.data as Position)
+            ),
+            child: const HomePage(),
+          );
+        } else if (snap.hasError) {
+          return Scaffold(
+            body: Center(
+              child: Text(snap.error.toString()),
+            ),
+          );
+        } else {
+          return const Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
         }
-      )
+      },
     );
   }
 }
@@ -76,5 +102,5 @@ Future<Position> _determinePosition() async {
 
   // When we reach here, permissions are granted and we can
   // continue accessing the position of the device.
-  return await Geolocator.getCurrentPosition();
+  return await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
 }
