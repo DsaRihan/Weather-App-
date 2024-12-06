@@ -142,8 +142,97 @@ class HomePage extends StatelessWidget {
                                   ),
                                 ]
                               ),
+                              Row(
+                                children: [
+                                  Image.asset('assets/12.png',scale: 8,),
+                                  SizedBox(width: 5,),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+																				'Sunset',
+																				style: TextStyle(
+																					color: Colors.white,
+																					fontWeight: FontWeight.w300
+																				),
+																			),
+                                      const SizedBox(height: 3),
+																			Text(
+																				'5:30pm',
+																				style: const TextStyle(
+																					color: Colors.white,
+																					fontWeight: FontWeight.w700
+																				),
+                                      ),
+                                    ],
+                                  ),
+                                ]
+                              ),
                             ],
                           ),
+                          const Padding(
+														padding: EdgeInsets.symmetric(vertical: 5.0),
+														child: Divider(
+															color: Colors.grey,
+														),
+													),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Image.asset('assets/13.png',scale: 8,),
+                                  SizedBox(width: 5,),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+																				'Temp Max',
+																				style: TextStyle(
+																					color: Colors.white,
+																					fontWeight: FontWeight.w300
+																				),
+																			),
+                                      const SizedBox(height: 3),
+																			Text(
+																				'15c',
+																				style: const TextStyle(
+																					color: Colors.white,
+																					fontWeight: FontWeight.w700
+																				),
+                                      ),
+                                    ],
+                                  ),
+                                ]
+                              ),
+                              Row(
+                                children: [
+                                  Image.asset('assets/14.png',scale: 8,),
+                                  SizedBox(width: 5,),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+																				'Temp Min',
+																				style: TextStyle(
+																					color: Colors.white,
+																					fontWeight: FontWeight.w300
+																				),
+																			),
+                                      const SizedBox(height: 3),
+																			Text(
+																				'6c',
+																				style: const TextStyle(
+																					color: Colors.white,
+																					fontWeight: FontWeight.w700
+																				),
+                                      ),
+                                    ],
+                                  ),
+                                ]
+                              ),
+                            ],
+                          ), 
                     ],
                   ),
                 ),
