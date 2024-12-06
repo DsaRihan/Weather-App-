@@ -24,33 +24,33 @@ class HomePage extends StatelessWidget {
           child: Stack(
             children: [
               Align(
-                alignment: AlignmentDirectional(3,-0.3),
+                alignment: const AlignmentDirectional(3,-0.3),
                 child: Container(
                   height: 300,
                   width: 300,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: Colors.deepPurple,
                   ),
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-3,-0.3),
+                alignment: const AlignmentDirectional(-3,-0.3),
                 child: Container(
                   height: 300,
                   width: 300,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: Colors.deepPurple,
                   ),
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0,-1.2),
+                alignment: const AlignmentDirectional(0,-1.2),
                 child: Container(
                   height: 300,
                   width: 600,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Color(0xFFFFAB40),
                   ),
                 ),
@@ -58,7 +58,7 @@ class HomePage extends StatelessWidget {
               BackdropFilter(
                 filter:ImageFilter.blur(sigmaX: 100,sigmaY: 100),
                 child: Container(
-                  decoration: BoxDecoration(color: Colors.transparent),
+                  decoration: const BoxDecoration(color: Colors.transparent),
                 ),),
                 SizedBox(
                   height: MediaQuery.of(context).size.height,
